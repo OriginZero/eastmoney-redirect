@@ -10,13 +10,11 @@
 
 ## 安装
 
-### 方法1: 直接安装
+### 方法1: 从 Greasy Fork 安装（推荐）
 
-复制 `dist/eastmoney-redirect.user.js` 文件内容，在油猴中创建新脚本并粘贴。
+访问 https://greasyfork.org/zh-CN/scripts/568097 安装最新版本。
 
-### 方法2: 从Greasy Fork安装
-
-（待发布）
+### 方法2: 手动安装
 
 ## 开发
 
