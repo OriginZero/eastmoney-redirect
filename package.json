@@ -1,0 +1,18 @@
+{
+  "name": "eastmoney-redirect",
+  "version": "1.0.0",
+  "description": "油猴脚本 - 旧版东方财富股票链接自动跳转到新版",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "tampermonkey",
+    "userscript",
+    "eastmoney",
+    "redirect"
+  ],
+  "author": "",
+  "license": "MIT"
+}
