@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         东方财富链接跳转
 // @namespace    https://github.com/OriginZero/eastmoney-redirect
-// @version      1.0.0
+// @version      1.0.1
 // @description  自动将旧版东方财富股票链接跳转到新版
 // @author       OriginZero
 // @license      MIT
@@ -23,6 +23,14 @@
         if (match) {
             const prefix = match[1].toLowerCase();
             const code = match[2];
+
+            const isShanghaiFund = prefix === 'sh' && /^5\d{5}$/.test(code);
+            const isShenzhenFund = prefix === 'sz' && /^1\d{5}$/.test(code);
+
+            if (isShanghaiFund || isShenzhenFund) {
+                return;
+            }
+
             const newUrl = `${NEW_BASE}${prefix}${code}.html`;
 
             if (url !== newUrl) {

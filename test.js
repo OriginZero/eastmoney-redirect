@@ -6,6 +6,14 @@ function redirectToNewVersion(url) {
     if (match) {
         const prefix = match[1].toLowerCase();
         const code = match[2];
+
+        const isShanghaiFund = prefix === 'sh' && /^5\d{5}$/.test(code);
+        const isShenzhenFund = prefix === 'sz' && /^1\d{5}$/.test(code);
+
+        if (isShanghaiFund || isShenzhenFund) {
+            return null;
+        }
+
         return `${NEW_BASE}${prefix}${code}.html`;
     }
     return null;
@@ -26,6 +34,22 @@ const testCases = [
     },
     {
         input: 'https://quote.eastmoney.com/',
+        expected: null
+    },
+    {
+        input: 'https://quote.eastmoney.com/sh501001.html',
+        expected: null
+    },
+    {
+        input: 'https://quote.eastmoney.com/sh511880.html',
+        expected: null
+    },
+    {
+        input: 'https://quote.eastmoney.com/sz159001.html',
+        expected: null
+    },
+    {
+        input: 'https://quote.eastmoney.com/sz161039.html',
         expected: null
     },
 ];

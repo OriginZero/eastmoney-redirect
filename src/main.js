@@ -11,6 +11,14 @@
         if (match) {
             const prefix = match[1].toLowerCase();
             const code = match[2];
+
+            const isShanghaiFund = prefix === 'sh' && /^5\d{5}$/.test(code);
+            const isShenzhenFund = prefix === 'sz' && /^1\d{5}$/.test(code);
+
+            if (isShanghaiFund || isShenzhenFund) {
+                return;
+            }
+
             const newUrl = `${NEW_BASE}${prefix}${code}.html`;
 
             if (url !== newUrl) {
